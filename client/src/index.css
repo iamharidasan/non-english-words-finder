@@ -1,3 +1,5 @@
-body {
+body,
+#root {
   background: #eee;
+  height: 100vh;
 }

@@ -24,14 +24,14 @@ router.post(
         .replace(/[^a-zA-Z \'\-\/]/g, "")
         .split(" ")
         .map((s) => s.toLowerCase())
-      //.map((s) => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase())
-      //console.log(wordsArray)
       const difference = wordsArray.filter(
         (word) => !dictonaryWordsArr.includes(word)
       )
       return res.json(difference)
     } catch (err) {
-      res.status(500).json({ error: "Internal Error", message: err.message })
+      res
+        .status(500)
+        .json({ errors: { param: "Internal Error", msg: err.message } })
     }
   }
 )
