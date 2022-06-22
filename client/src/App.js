@@ -7,6 +7,7 @@ function App() {
   const [inputText, setInputText] = useState("")
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(null)
+  const [error, setError] = useState(null)
 
   const checkSentenceHandler = async () => {
     try {
@@ -17,8 +18,11 @@ function App() {
         { headers: { "Content-Type": "application/json" } }
       )
       setResults((prev) => apiCall.data)
+      setError(null)
       setLoading(false)
     } catch (err) {
+      setResults(null)
+      setError(err.response.data.errors[0].msg)
       setLoading(false)
     }
   }
@@ -39,6 +43,7 @@ function App() {
                       setInputText((prevState) => e.target.value)
                     }
                   />
+                  {error && <p className="text-danger">{error}</p>}
                 </Form.Group>
                 <Button
                   variant="primary"
@@ -63,7 +68,7 @@ function App() {
                   </Alert>
                 ) : (
                   <Alert variant="success">
-                    <Alert.Heading>0 Non-English words found</Alert.Heading>
+                    <Alert.Heading>No non-english word found</Alert.Heading>
                   </Alert>
                 )
               ) : null}

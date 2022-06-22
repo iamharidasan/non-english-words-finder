@@ -8,7 +8,7 @@ const { body, validationResult } = require("express-validator")
 //@Access: public
 router.post(
   "/",
-  body("sentence", "Please enter one or more characters to continue")
+  body("sentence", "Please enter one or more characters to check")
     .not()
     .isEmpty(),
   (req, res) => {
