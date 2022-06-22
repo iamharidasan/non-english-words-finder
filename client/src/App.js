@@ -28,7 +28,7 @@ function App() {
         <Col xl={{ offset: 3, span: 6 }}>
           <Row>
             <div className={Styles.AppHolder}>
-              <h3>Check a sentence for a non English words</h3>
+              <h3>Check a sentence for a non English word</h3>
               <Form className="mb-3">
                 <Form.Group className="mb-3" controlId="formBasicWord">
                   <Form.Label>Enter your sentence:</Form.Label>

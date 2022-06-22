@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
-const PORT = process.env.BPORT || 5000
+const PORT = 5000
 app.listen(PORT, () => {
   console.log(`Server started and Running at port: ${PORT}`)
 })
